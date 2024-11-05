@@ -1,0 +1,13 @@
+# Created by pytest automatically.
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# VS Code directory
+.vscode/
+
+# Environment variables
+.env

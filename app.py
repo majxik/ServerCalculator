@@ -5,9 +5,16 @@ app = Flask(__name__)
 @app.route('/calculate', methods=['POST'])
 def calculate():
     data = request.get_json()
+
+    if 'operation' not in data or 'num1' not in data or 'num2' not in data:
+        return jsonify({'error': 'Missing data'}), 400
+
     operation = data['operation']
     num1 = data['num1']
     num2 = data['num2']
+
+    if not isinstance(num1, (int, float)) or not isinstance(num2, (int, float)):
+        return jsonify({'error': 'Non-numeric data'}), 400
 
     if operation == 'add':
         result = num1 + num2
